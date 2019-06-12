@@ -1,0 +1,8 @@
+{ "users":
+  [{"password":"seattle",
+    "email":"maddiehall@gmail.com",
+    "isTutor":false,
+    "username":"mhall"},
+    {"password":"boston",
+    "email": "johnnybill@gmail.com"}
+    ]}

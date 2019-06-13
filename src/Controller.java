@@ -71,7 +71,7 @@ public class Controller {
 
         try {
 
-            model.recoverPassword(email, username);
+            model.recoverPassword(email);
 
             /*Todo
 

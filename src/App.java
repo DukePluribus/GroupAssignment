@@ -1,8 +1,17 @@
+import java.io.IOException;
+
 public class App {
 
     public static void main(String args[]){
+        Model model = new Model();
+        try {
+            model.registerUser("mad", "madhall@gmail.com", "abc");
+            model.registerUser("mad", "madhall@gmail.com", "abc");
+            model.save();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-//        Model model = new Model();
 
         //      Controller user1 = new Controller(model);
 

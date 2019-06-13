@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
-    private List<Controller> userList;
+    private ArrayList<Controller> userList;
 
+    public Model(){
+        userList = new ArrayList<Controller>();
+    }
+    
     public void sendMessage(String message){
         for (Controller user:userList
              ) {
@@ -29,6 +34,7 @@ public class Model {
         Check to see if the username-password combination exists in the database. If yes
         return true. Otherwise, return false to the controller.
          */
+        return true;
     }
 
     public boolean registerUser(String username, String email, String password) {
@@ -36,6 +42,7 @@ public class Model {
         Verify that this account/username does not exist yet in the DB. If it does,
         return false. If it is not there yet, add new user entry, and return true.
          */
+        return true;
     }
 
     public String recoverPassword(String email) {
@@ -43,6 +50,7 @@ public class Model {
         Check the database, see if the email exists in it. If it does, return the password.
         Otherwise, throw an AccountNotFound exception.
          */
+        return "password";
     }
 
 

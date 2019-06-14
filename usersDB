@@ -1,0 +1,9 @@
+{
+  "usersList" : [ {
+    "username" : "mary",
+    "email" : "marysmith@gmail.com",
+    "password" : "pink",
+    "isTutor" : false,
+    "tutor" : false
+  } ]
+}

@@ -15,9 +15,10 @@ public class Controller {
         if(model.verifyCredentials(_username, password)){
             model.attachUser(this);                         //The controller attaches itself to the user list in the model so that it can be notified of changes
             username = _username;
-            return true;   //Tell the view to switch windows
-        }
-        return false;
+            user.switchFromLoginToHome();   //Tell the view to switch windows
+        } else {
+        	user.loginInvalid();
+		}
     }
 
 

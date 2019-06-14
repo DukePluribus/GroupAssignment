@@ -547,17 +547,21 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         LoginWindow checkLogin = new LoginWindow(GUIprogram.this);
-        if(controller.loginRequest(checkLogin.getUserName(),checkLogin.getPassword())){
-        jLogin.setVisible(false);
-        jHomeScreen.pack();
-        jHomeScreen.setVisible(true);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, 
-                    "Wrong Username or Password",
-                    "Invalid Credentials" , JOptionPane.ERROR_MESSAGE);
-        }
+		controller.loginRequest(checkLogin.getUserName(),checkLogin.getPassword());
+
     }//GEN-LAST:event_loginButtonActionPerformed
+
+	public void loginInvalid(){
+		JOptionPane.showMessageDialog(this,
+				"Wrong Username or Password",
+				"Invalid Credentials" , JOptionPane.ERROR_MESSAGE);
+	}
+
+	public void switchFromLoginToHome(){
+		jLogin.setVisible(false);
+		jHomeScreen.pack();
+		jHomeScreen.setVisible(true);
+	}
 
     private void switchFromLoginToAcctRecoveryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchFromLoginToAcctRecoveryButtonActionPerformed
         jLogin.setVisible(false);

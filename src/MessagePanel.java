@@ -29,17 +29,6 @@ public class MessagePanel {
         }
     }
 
-    public Connection getConnectionInfo() {
-        String ip = getIPAddress();
-        int port = getPortNumber();
-        Connection connection = new Connection(ip, port);
-        if (getPortNumber() == -1) {
-            returnError();
-            return connection;
-        } else {
-            return connection;
-        }
-    }
 
     public String updateMessageWindow() {
         if (!mainProgram.getSentMessage().equals("")) {

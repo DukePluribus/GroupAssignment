@@ -40,7 +40,7 @@ public class UserDatabase {
         user.setEmail(email);
         user.setPassword(password);
         user.setUsername(username);
-        user.setTutor(false);
+        user.setTutor(isTutor);
         return user;
     }
     public void save() throws IOException {
@@ -57,9 +57,24 @@ public class UserDatabase {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         return singleInstance;
+    }
+    public void removeUser(String username, String password){
+        for(int i=0; i<usersList.size();i++) {
+            String userlist = usersList.get(i).getUsername();
+            String passwordlist = usersList.get(i).getPassword();
+            if ((userlist.equals(username) && (passwordlist.equals(password)))) {
+                usersList.remove(i);
+            }
+        }
+    }
+    public void changePassword(String username, String password){
+        for(int i=0;i<usersList.size();i++){
+            if(usersList.get(i).getUsername().equals(username)){
+                usersList.get(i).setPassword(password);
+            }
+        }
     }
 
 }

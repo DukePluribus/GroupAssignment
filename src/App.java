@@ -5,10 +5,14 @@ public class App {
     public static void main(String args[]){
         Model model = new Model();
         try {
-            model.registerUser("mad", "madhall@gmail.com", "abc");
-            model.registerUser("mad", "madhall@gmail.com", "abc");
+
+            model.registerUser("mary", "marysmith@gmail.com", "blue");
+            model.deleteAccount("johnsmith@gmail.com","yellow");
+            model.changePassword("mary", "pink");
             model.save();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

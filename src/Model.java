@@ -80,7 +80,7 @@ public void attachUser(Controller user){}
         if(UserDatabase.getInstance().verifyCreds(username,password)){
             return false;
         }
-       UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(email,username,password,false));
+       UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
        return true;
 
 
@@ -99,7 +99,7 @@ public void attachUser(Controller user){}
 //    }
 //
 //
-   public String recoverPassword( String email)throws Exception{
+   public String recoverPassword(String email)throws Exception{
        try {
            return UserDatabase.getInstance().getPassword(email);
        } catch (Exception e) {
@@ -108,19 +108,22 @@ public void attachUser(Controller user){}
 
    }
 
-   public void deleteAccount(String username){}
+   public void deleteAccount(String username, String password) throws Exception{
+        try{
+            UserDatabase.getInstance().removeUser(username,password);
+        } catch(Exception e){
+
+        }
+   }
+   public void changePassword(String username, String newPassword) throws Exception{
+       try {
+           UserDatabase.getInstance().changePassword(username, newPassword);
+       } catch (Exception e) {
+       }
+   }
 
     public void save() throws IOException {
         UserDatabase.getInstance().save();
     }
 
- //  public static void main(String args[]){}
-//        Model m=new Model();
-//        m.registerUser("jsmith", "johnsmith@gmail.com", "rain");
-//        //m.registerUser("mhall", "maddiehall@gmail.com", "seattle");
-//        m.test("jsmith", "rain", "johnsmith@gmail.com");
-//    }
-//}
-
-
-}
+ }

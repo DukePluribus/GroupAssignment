@@ -1,63 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-
 import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-/**
- *
- * @author jsaunders
- */
 public class LoginWindow {
+
     GUIprogram mainProgram;
-    Credentials passcode = new Credentials();
-    
-    public LoginWindow(GUIprogram _program){
+
+    public LoginWindow(GUIprogram _program) {
         mainProgram = _program;
-    }    
-    
-   /*
-    Retrieves the UserName from the login screen
-    */
-    public String getUserName(){
+    }
+
+    public String getUserName() {
         String uN = mainProgram.getUserName();
         return uN;
     }
     
-    /*
-    Retrieves the Password from the login screen
-    using teh Credentials class to obtain a plain text string of the password
-    */
+    private String parsePassword(char[] password){
+      String pwdI = Arrays.toString(password);
+       String newPSWD = "";
+      int x =1;
+      int y = x+3;
+      
+      for (int i = 1; i<pwdI.length(); i+=3) {
+          char ch = pwdI.charAt(i);
+         String character = Character.toString(ch);
+         newPSWD +=character;
+      }
+      
+    return newPSWD;
+
+   }
     
-    public String getPassword(){
-        String pwd = passcode.getPassword(mainProgram.getPassword());
+       public String getLoginPassword(char[] password){
+        String pwd = parsePassword(password);
+        return pwd;        
+    }
+
+    public String getPassword() {
+        String pwd = getLoginPassword(mainProgram.getPassword());
         return pwd;
     }
-        public boolean credentials(){
-            //if(control.loginRequest()==true){
-                return true;
-//           // }
-//            else{
-//                return false;
-//            }
-        }
-       
-    
-    
-    
-            
-    
-    
+
     
 
     
- }  
-    
-    
- 
+}

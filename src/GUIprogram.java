@@ -50,7 +50,7 @@ public class GUIprogram extends javax.swing.JFrame {
         switchFromHomeToOneToOneButton = new javax.swing.JButton();
         switchFromHomeToRoomsButton = new javax.swing.JButton();
         switchFromHomeToAccountSettingsButton = new javax.swing.JButton();
-        homeBackButton = new javax.swing.JButton();
+        homeLogoutButton = new javax.swing.JButton();
         titleHomeScreen = new javax.swing.JLabel();
         backgroundHomeScreen = new javax.swing.JLabel();
         jOnetoOne = new javax.swing.JDialog();
@@ -138,15 +138,15 @@ public class GUIprogram extends javax.swing.JFrame {
         });
         jHomeScreen.getContentPane().add(switchFromHomeToAccountSettingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 230, 70));
 
-        homeBackButton.setBackground(new java.awt.Color(163, 163, 181));
-        homeBackButton.setForeground(new java.awt.Color(55, 55, 71));
-        homeBackButton.setText("LOG OUT");
-        homeBackButton.addActionListener(new java.awt.event.ActionListener() {
+        homeLogoutButton.setBackground(new java.awt.Color(163, 163, 181));
+        homeLogoutButton.setForeground(new java.awt.Color(55, 55, 71));
+        homeLogoutButton.setText("LOG OUT");
+        homeLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeBackButtonActionPerformed(evt);
+                homeLogoutButtonActionPerformed(evt);
             }
         });
-        jHomeScreen.getContentPane().add(homeBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, 40));
+        jHomeScreen.getContentPane().add(homeLogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, 40));
 
         titleHomeScreen.setBackground(new java.awt.Color(55, 55, 71));
         titleHomeScreen.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -440,6 +440,11 @@ public class GUIprogram extends javax.swing.JFrame {
         accountChangePasswordButton.setBackground(new java.awt.Color(163, 163, 181));
         accountChangePasswordButton.setForeground(new java.awt.Color(55, 55, 71));
         accountChangePasswordButton.setText("CHANGE PASSWORD");
+        accountChangePasswordButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountChangePasswordButtonActionPerformed(evt);
+            }
+        });
         jAccountSettings.getContentPane().add(accountChangePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 230, 70));
 
         accountContactSuppButton.setBackground(new java.awt.Color(163, 163, 181));
@@ -560,11 +565,12 @@ public class GUIprogram extends javax.swing.JFrame {
         jRecovery.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_switchFromLoginToAcctRecoveryButtonActionPerformed
 
-    private void homeBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBackButtonActionPerformed
+    private void homeLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeLogoutButtonActionPerformed
+        controller.userExit();
         jHomeScreen.setVisible(false);
         jLogin.pack();
         jLogin.setVisible(true);           // TODO add your handling code here:
-    }//GEN-LAST:event_homeBackButtonActionPerformed
+    }//GEN-LAST:event_homeLogoutButtonActionPerformed
 
     private void recoveryBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recoveryBackButtonActionPerformed
         jRecovery.setVisible(false);
@@ -593,6 +599,7 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void recoverySubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recoverySubmitButtonActionPerformed
         recoverPasswordPressed(true);
+        
         String password = controller.accountRecovery(getRecoveryEmail());
         JOptionPane.showMessageDialog(this, 
                     "Your password is: "+password,
@@ -635,6 +642,10 @@ public class GUIprogram extends javax.swing.JFrame {
         jLogin.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_regBackButtonActionPerformed
 
+    private void accountChangePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountChangePasswordButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accountChangePasswordButtonActionPerformed
+
     //Constructor
     
 //    public static void main(String args[]) {
@@ -664,7 +675,7 @@ public class GUIprogram extends javax.swing.JFrame {
     private javax.swing.JTextField chatSendMessageBox;
     private javax.swing.JLabel emRec;
     private javax.swing.JLabel emailReg;
-    private javax.swing.JButton homeBackButton;
+    private javax.swing.JButton homeLogoutButton;
     private javax.swing.JLabel ipAdd;
     private javax.swing.JTextField ipaddTF;
     private javax.swing.JDialog jAccountSettings;

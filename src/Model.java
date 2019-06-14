@@ -1,13 +1,14 @@
+
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 
 
 public class Model {
@@ -82,8 +83,6 @@ public void attachUser(Controller user){}
         }
        UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
        return true;
-
-
        }
 //
 //

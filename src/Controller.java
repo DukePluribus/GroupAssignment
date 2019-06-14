@@ -5,28 +5,16 @@ public class Controller {
 
     private View user;
 
-
-
     //Constructor
-
     //When a user "opens" the app, it will create a controller that will attach itself to the Model
-
     public Controller(Model _model){
-
         model = _model;
-
         user = new View(this);
-
     }
 
-
-
     public void loginRequest(String _username, String password){
-
         if(model.verifyCredentials(_username, password)){
-
             username = _username;
-
             model.attachUser(this);                         //The controller attaches itself to the user list in the model so that it can be notified of changes
 
             user.switchWindow("landingPage");   //Tell the view to switch windows
@@ -34,9 +22,7 @@ public class Controller {
         }
 
         else{
-
             user.errorWindow("The username or password is incorrect. /n If you do not remember your password, use the Password Recovery option.");
-
         }
 
     }

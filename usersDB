@@ -1,29 +1,5 @@
 {
   "usersList" : [ {
-    "username" : "tarcza@amazon.com",
-    "email" : "steve",
-    "password" : "abc",
-    "isTutor" : false,
-    "tutor" : false
-  }, {
-    "username" : "kearney.lauren@gmail.com",
-    "email" : "lauren",
-    "password" : "def",
-    "isTutor" : false,
-    "tutor" : false
-  }, {
-    "username" : "madhall@gmail.com",
-    "email" : "mad",
-    "password" : "abc",
-    "isTutor" : false,
-    "tutor" : false
-  }, {
-    "username" : "marysmith@gmail.com",
-    "email" : "mary",
-    "password" : "blue",
-    "isTutor" : false,
-    "tutor" : false
-  }, {
     "username" : "mary",
     "email" : "marysmith@gmail.com",
     "password" : "pink",

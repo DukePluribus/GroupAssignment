@@ -1,4 +1,4 @@
 /dist/
 *.class
 *.class
-nbproject/*
+nbproject/**

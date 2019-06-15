@@ -1,5 +1,5 @@
 public class Controller {
-
+    // Controller Class
     private String username;
 
     private Model model;

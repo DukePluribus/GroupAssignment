@@ -1,5 +1,4 @@
 /dist/
 *.class
 *.class
-nbproject/private/private.properties
-nbproject/private/private.xml
+nbproject/*

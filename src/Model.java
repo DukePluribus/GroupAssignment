@@ -12,15 +12,15 @@ import org.json.simple.parser.ParseException;
 
 
 public class Model {
+
     private ArrayList<Controller> userList;
 
-    public Model(){
+    public Model() {
         userList = new ArrayList<Controller>();
     }
-    
-    public void sendMessage(String message){
-        for (Controller user:userList
-             ) {
+
+    public void sendMessage(String message) {
+        for (Controller user : userList) {
             user.receiveMessage(message);
         }
 

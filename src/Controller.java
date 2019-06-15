@@ -1,7 +1,7 @@
-
-
 public class Controller {
+
     private String username;
+
     private Model model;
     private GUIprogram user;
 
@@ -10,10 +10,10 @@ public class Controller {
         user = new GUIprogram(Controller.this);
     }
 
-    public boolean loginRequest(String _username, String password){
+    public boolean loginRequest(String _username, String password) {
         System.out.println("loginRequest in controller called");
-        if(model.verifyCredentials(_username, password)){
-            model.attachUser(this);                         //The controller attaches itself to the user list in the model so that it can be notified of changes
+        if (model.verifyCredentials(_username, password)) {
+            model.attachUser(this);
             username = _username;
             user.switchFromLoginToHome();   //Tell the view to switch windows
         } else {
@@ -32,8 +32,8 @@ public class Controller {
 
     }
 
-    public String accountRecovery(String email){
-            return model.recoverPassword(email);
+    public String accountRecovery(String email) {
+        return model.recoverPassword(email);
     }
     
     //This method will be called when the window is closed and the user exits the program
@@ -44,23 +44,12 @@ public class Controller {
 
     }
 
-
-
-    public void receiveMessage(String message){
+    public void receiveMessage(String message) {
         user.receiveMessage(message);
     }
 
-
-
-    //Takes the message from the view and sends it to the model to be sent to the
-
-    //other users
-
-    public void sendMessage(String message){
-        model.sendMessage(username+": "+message);
+    public void sendMessage(String message) {
+        model.sendMessage(username + ": " + message);
     }
-
-
-
 }
 

@@ -548,7 +548,6 @@ public class GUIprogram extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         LoginWindow checkLogin = new LoginWindow(GUIprogram.this);
 		controller.loginRequest(checkLogin.getUserName(),checkLogin.getPassword());
-
     }//GEN-LAST:event_loginButtonActionPerformed
 
 	public void loginInvalid(){

@@ -17,11 +17,5 @@
     "password" : "butts",
     "isTutor" : false,
     "tutor" : false
-  }, {
-    "username" : "buttz",
-    "email" : "buttz",
-    "password" : "buttz",
-    "isTutor" : false,
-    "tutor" : false
   } ]
 }

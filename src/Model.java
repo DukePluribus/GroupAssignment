@@ -36,7 +36,7 @@ public class Model {
         try{
             UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
         } catch(Exception e) {
-            
+            return false;
         }
         return true;
     }
@@ -50,16 +50,17 @@ public class Model {
         }
         throw new Exception("Error Message: No email and Password found");
     }
-    public void deleteAccount(String username, String password) throws Exception{
+    public boolean deleteAccount(String username, String password) throws Exception{
         try{
-            UserDatabase.getInstance().removeUser(username,password);
-        }catch(Exception e){}
-    }
-    public void changePassword(String username, String newPassword) throws Exception{
-        try{
-            UserDatabase.getInstance().changePassword(username,newPassword);
+            return UserDatabase.getInstance().removeUser(username,password);
         }catch(Exception e){
-
+            return false;}
+    }
+    public boolean changePassword(String username, String newPassword) throws Exception{
+        try{
+            return UserDatabase.getInstance().changePassword(username,newPassword);
+        }catch(Exception e){
+            return false;
         }
     }
     public void save() throws IOException{

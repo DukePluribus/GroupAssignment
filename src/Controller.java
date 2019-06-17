@@ -37,6 +37,17 @@ public class Controller {
     public void userExit() {
         model.detachUser(this);
     }
+    
+    public void deleteAccount(String username, String password){
+        try{
+            if(model.deleteAccount(username, password)){
+                user.deleteAccountSuccesful();
+            } else {
+                user.deleteAccountFail();
+            }
+        } catch(Exception e){
+        }
+    }
 
     public void receiveMessage(String message) {
         user.receiveMessage(message);

@@ -809,15 +809,23 @@ public class GUIprogram extends javax.swing.JFrame {
     private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {
         int warning = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete your account?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
         if (warning == JOptionPane.OK_OPTION) {
-            JOptionPane.showMessageDialog(this, "Your account has been deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
-            jDeleteAccount.setVisible(false);
-            jLogin.pack();
-            jLogin.setVisible(true);
+            controller.deleteAccount(usernameDeleteAccountTextField.getText(), passwordDeleteAccountTextField.getText());
         } else if (warning == JOptionPane.CANCEL_OPTION) {
             jDeleteAccount.setVisible(false);
             jAccountSettings.pack();
             jAccountSettings.setVisible(true);
         }
+    }
+    
+    public void deleteAccountSuccesful(){
+        JOptionPane.showMessageDialog(this, "Your account has been deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
+        jDeleteAccount.setVisible(false);
+        jLogin.pack();
+        jLogin.setVisible(true);
+    }
+    
+    public void deleteAccountFail(){
+        JOptionPane.showMessageDialog(this, "Account delete failed. Incorrect username or password","Account Delete Failed",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void cancelDeleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {

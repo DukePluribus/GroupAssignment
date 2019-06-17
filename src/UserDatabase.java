@@ -61,23 +61,27 @@ public class UserDatabase {
         }
         return singleInstance;
     }
-    public void removeUser(String username, String password) throws IOException {
+    public boolean removeUser(String username, String password) throws IOException {
         for(int i=0; i<usersList.size();i++) {
             String userlist = usersList.get(i).getUsername();
             String passwordlist = usersList.get(i).getPassword();
             if ((userlist.equals(username) && (passwordlist.equals(password)))) {
                 usersList.remove(i);
+                UserDatabase.getInstance().save();
+                return true;
             }
         }
-        UserDatabase.getInstance().save();
+        return false;
     }
-    public void changePassword(String username, String password) throws IOException {
+    public boolean changePassword(String username, String password) throws IOException {
         for(int i=0;i<usersList.size();i++){
             if(usersList.get(i).getUsername().equals(username)){
                 usersList.get(i).setPassword(password);
+                UserDatabase.getInstance().save();
+                return true;
             }
         }
-        UserDatabase.getInstance().save();
+        return false;
     }
 
 }

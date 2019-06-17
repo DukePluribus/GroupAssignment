@@ -35,7 +35,12 @@ public class Controller {
 
     public String accountRecovery(String email) throws Exception {
         String password = model.recoverPassword(email);
-        return password;
+        if(password!=null){
+            return password;}
+        else{
+            user.accountRecoveryFail();
+        }
+        return null;
     }
 
     public void userExit() {

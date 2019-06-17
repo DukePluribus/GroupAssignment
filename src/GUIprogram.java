@@ -750,8 +750,11 @@ public class GUIprogram extends javax.swing.JFrame {
     private void regRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {
         controller.registerRequest(getUserNameRegistered(), getEmailRegistered(), getPasswordRegistered());
         registerPressed(true);
-        JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void registerSuccessful(){
         jRegistration.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
     }
     
     public void registerFailed(){

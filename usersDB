@@ -24,5 +24,10 @@
     "email" : "q",
     "password" : "e",
     "tutor" : false
+  }, {
+    "username" : "betterbutts",
+    "email" : "butts",
+    "password" : "butts",
+    "tutor" : false
   } ]
 }

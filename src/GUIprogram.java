@@ -675,6 +675,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendMessageBoxActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.sendMessage(getSentM());
     }
 
     private void recoveryEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {
@@ -774,6 +775,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
+                controller.sendMessage(getSentM());
     }
 
     private void chatBackButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1033,6 +1035,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     public void receiveMessage(String message) {
+        System.out.println("Message received: " + message);
         messageTextWindowGroupChat.setText(messageTextWindowGroupChat.getText() + "\n" + message);
     }
 

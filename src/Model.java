@@ -1,3 +1,4 @@
+//this is the model class that communicates between the controller and the database
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

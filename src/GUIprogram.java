@@ -1,3 +1,5 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -24,14 +26,15 @@ public class GUIprogram extends javax.swing.JFrame {
         initComponents();
         jLogin.setVisible(true);
     }
-
+//test comment
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         jHomeScreen = new javax.swing.JDialog();
         switchFromHomeToOneToOneButton = new javax.swing.JButton();
         switchFromHomeToGroupChatButton = new javax.swing.JButton();
         switchFromHomeToAccountSettingsButton = new javax.swing.JButton();
-        homeLogoutButton = new javax.swing.JButton();
+        homeBackButton = new javax.swing.JButton();
         titleHomeScreen = new javax.swing.JLabel();
         backgroundHomeScreen = new javax.swing.JLabel();
         jOnetoOne = new javax.swing.JDialog();
@@ -153,7 +156,7 @@ public class GUIprogram extends javax.swing.JFrame {
         homeBackButton.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeLogoutButtonActionPerformed(evt);
+                homeBackButtonActionPerformed(evt);
             }
         });
         jHomeScreen.getContentPane().add(homeBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, 40));
@@ -281,7 +284,7 @@ public class GUIprogram extends javax.swing.JFrame {
         jLogin.getContentPane().add(titleLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         switchFromLoginToAcctRecoveryButton.setBackground(new java.awt.Color(163, 163, 181));
         switchFromLoginToAcctRecoveryButton.setForeground(new java.awt.Color(55, 55, 71));
-        switchFromLoginToAcctRecoveryButton.setText("Forgot Username or Password?");
+        switchFromLoginToAcctRecoveryButton.setText("Password Recovery");
         switchFromLoginToAcctRecoveryButton.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +294,7 @@ public class GUIprogram extends javax.swing.JFrame {
         jLogin.getContentPane().add(switchFromLoginToAcctRecoveryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 320, -1));
         switchLoginToRegisterButton.setBackground(new java.awt.Color(163, 163, 181));
         switchLoginToRegisterButton.setForeground(new java.awt.Color(55, 55, 71));
-        switchLoginToRegisterButton.setText("Don't have an account?");
+        switchLoginToRegisterButton.setText("Register");
         switchLoginToRegisterButton.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -419,16 +422,6 @@ public class GUIprogram extends javax.swing.JFrame {
         accountChangePasswordButton.setForeground(new java.awt.Color(55, 55, 71));
         accountChangePasswordButton.setText("CHANGE PASSWORD");
         accountChangePasswordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountChangePasswordButtonActionPerformed(evt);
-            }
-        });
-        jAccountSettings.getContentPane().add(accountChangePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 230, 70));
-
-        accountContactSuppButton.setBackground(new java.awt.Color(163, 163, 181));
-        accountContactSuppButton.setForeground(new java.awt.Color(55, 55, 71));
-        accountContactSuppButton.setText("CONTACT SUPPORT");
-        jAccountSettings.getContentPane().add(accountContactSuppButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 230, 70));
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accountChangePasswordButtonActionPerformed(evt);
@@ -646,7 +639,7 @@ public class GUIprogram extends javax.swing.JFrame {
         layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         pack();
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     private void switchFromHomeToGroupChatButtonActionPerformed(java.awt.event.ActionEvent evt) {
         jHomeScreen.setVisible(false);
@@ -685,6 +678,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendMessageBoxActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.sendMessage(getSentM());
     }
 
     private void recoveryEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {
@@ -692,33 +686,31 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         LoginWindow checkLogin = new LoginWindow(GUIprogram.this);
-		controller.loginRequest(checkLogin.getUserName(),checkLogin.getPassword());
-    }//GEN-LAST:event_loginButtonActionPerformed
+        controller.loginRequest(checkLogin.getUserName(), checkLogin.getPassword());
+    }
+    
+    public void loginSuccessful(){
+        jLogin.setVisible(false);
+        jHomeScreen.pack();
+        jHomeScreen.setVisible(true);
+    }
+    
+    public void loginFailed(){
+        JOptionPane.showMessageDialog(this, "Wrong Username or Password", "Invalid Credentials", JOptionPane.ERROR_MESSAGE);
+    }
 
-	public void loginInvalid(){
-		JOptionPane.showMessageDialog(this,
-				"Wrong Username or Password",
-				"Invalid Credentials" , JOptionPane.ERROR_MESSAGE);
-	}
-
-	public void switchFromLoginToHome(){
-		jLogin.setVisible(false);
-		jHomeScreen.pack();
-		jHomeScreen.setVisible(true);
-	}
-
-    private void switchFromLoginToAcctRecoveryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchFromLoginToAcctRecoveryButtonActionPerformed
+    private void switchFromLoginToAcctRecoveryButtonActionPerformed(java.awt.event.ActionEvent evt) {
         jLogin.setVisible(false);
         jRecovery.pack();
         jRecovery.setVisible(true);
     }
 
-    private void homeLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeLogoutButtonActionPerformed
+    private void homeBackButtonActionPerformed(java.awt.event.ActionEvent evt) {
         controller.userExit();
         jHomeScreen.setVisible(false);
         jLogin.pack();
-        jLogin.setVisible(true);           // TODO add your handling code here:
-    }//GEN-LAST:event_homeLogoutButtonActionPerformed
+        jLogin.setVisible(true);
+    }
 
     private void recoveryBackButtonActionPerformed(java.awt.event.ActionEvent evt) {
         jRecovery.setVisible(false);
@@ -745,8 +737,12 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void recoverySubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         recoverPasswordPressed(true);
-        
-        String password = controller.accountRecovery(getRecoveryEmail());
+        String password = "";
+        try {
+            password = controller.accountRecovery(getRecoveryEmail());
+        } catch (Exception ex) {
+            Logger.getLogger(GUIprogram.class.getName()).log(Level.SEVERE, null, ex);
+        }
         recoverPassword(recoveryEmailField.getText());
         JOptionPane.showMessageDialog(this, "Your password is: " + password, "Recovered Password", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -755,6 +751,11 @@ public class GUIprogram extends javax.swing.JFrame {
         controller.registerRequest(getUserNameRegistered(), getEmailRegistered(), getPasswordRegistered());
         registerPressed(true);
         JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
+        jRegistration.setVisible(false);
+    }
+    
+    public void registerFailed(){
+        JOptionPane.showMessageDialog(this, "User already exists, try a new username", "Registration incomplete", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void portTFActionPerformed(java.awt.event.ActionEvent evt) {
@@ -775,7 +776,15 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void changePasswordSubmitActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.changePassword(usernameChangePassword.getText(), loginPasswordField1.getText());
+    }
+    
+    public void passwordChangeSuccess(){
         JOptionPane.showMessageDialog(this, "Password has been updated successfully.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void passwordChangeFail(){
+        JOptionPane.showMessageDialog(this, "Password update has failed. Username incorrect.", "Fail", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void changePasswordBackActionPerformed(java.awt.event.ActionEvent evt) {
@@ -792,6 +801,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
+                controller.sendMessage(getSentM());
     }
 
     private void chatBackButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,15 +822,23 @@ public class GUIprogram extends javax.swing.JFrame {
     private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {
         int warning = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete your account?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
         if (warning == JOptionPane.OK_OPTION) {
-            JOptionPane.showMessageDialog(this, "Your account has been deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
-            jDeleteAccount.setVisible(false);
-            jLogin.pack();
-            jLogin.setVisible(true);
+            controller.deleteAccount(usernameDeleteAccountTextField.getText(), passwordDeleteAccountTextField.getText());
         } else if (warning == JOptionPane.CANCEL_OPTION) {
             jDeleteAccount.setVisible(false);
             jAccountSettings.pack();
             jAccountSettings.setVisible(true);
         }
+    }
+    
+    public void deleteAccountSuccesful(){
+        JOptionPane.showMessageDialog(this, "Your account has been deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
+        jDeleteAccount.setVisible(false);
+        jLogin.pack();
+        jLogin.setVisible(true);
+    }
+    
+    public void deleteAccountFail(){
+        JOptionPane.showMessageDialog(this, "Account delete failed. Incorrect username or password","Account Delete Failed",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void cancelDeleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -882,7 +900,9 @@ public class GUIprogram extends javax.swing.JFrame {
     private javax.swing.JLabel emRec;
 
     private javax.swing.JLabel emailReg;
-    private javax.swing.JButton homeLogoutButton;
+
+    private javax.swing.JButton homeBackButton;
+
     private javax.swing.JLabel ipAdd;
 
     private javax.swing.JLabel ipAddGroupChat;
@@ -1049,6 +1069,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     public void receiveMessage(String message) {
+        System.out.println("Message received: " + message);
         messageTextWindowGroupChat.setText(messageTextWindowGroupChat.getText() + "\n" + message);
     }
 
@@ -1074,6 +1095,10 @@ public class GUIprogram extends javax.swing.JFrame {
 
     public String recoverPassword(String email) {
         return email;
+    }
+
+    public void accountRecoveryFail(){
+        JOptionPane.showMessageDialog(this, "Account email and password not found in database.", "Account Recovery Failed", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public String deleteAccount(String uname, String pwd) {

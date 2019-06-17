@@ -1,8 +1,8 @@
 public class User {
-    public String username;
-    public String email;
-    public String password;
-    public boolean isTutor;
+    private String username;
+    private String email;
+    private String password;
+    private boolean isTutor;
 
     public String getUsername(){
         return username;

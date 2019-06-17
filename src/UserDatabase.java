@@ -13,9 +13,10 @@ public class UserDatabase {
 
     private UserDatabase() throws IOException {
     }
-    public void addUsertobase(User user){
-        if(verifyCreds(user.username,user.password)!=true){
+    public void addUsertobase(User user) throws IOException {
+        if(verifyCreds(user.getUsername(),user.getPassword())!=true){
             usersList.add(user);}
+        UserDatabase.getInstance().save();
     }
     public boolean verifyCreds(String username, String password){
         for(int i=0; i<usersList.size();i++){
@@ -51,7 +52,7 @@ public class UserDatabase {
     //we need a single object mapper that will create the file and pass it back
     public static UserDatabase getInstance(){
         if(singleInstance==null){
-            ObjectMapper mapper =new ObjectMapper();
+            ObjectMapper mapper = new ObjectMapper();
             try {
                 singleInstance = mapper.readValue(new FileInputStream("usersDB"), UserDatabase.class);
             } catch (IOException e) {
@@ -60,21 +61,27 @@ public class UserDatabase {
         }
         return singleInstance;
     }
-    public void removeUser(String username, String password){
+    public boolean removeUser(String username, String password) throws IOException {
         for(int i=0; i<usersList.size();i++) {
             String userlist = usersList.get(i).getUsername();
             String passwordlist = usersList.get(i).getPassword();
             if ((userlist.equals(username) && (passwordlist.equals(password)))) {
                 usersList.remove(i);
+                UserDatabase.getInstance().save();
+                return true;
             }
         }
+        return false;
     }
-    public void changePassword(String username, String password){
+    public boolean changePassword(String username, String password) throws IOException {
         for(int i=0;i<usersList.size();i++){
             if(usersList.get(i).getUsername().equals(username)){
                 usersList.get(i).setPassword(password);
+                UserDatabase.getInstance().save();
+                return true;
             }
         }
+        return false;
     }
 
 }

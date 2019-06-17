@@ -1,6 +1,4 @@
-
-import java.io.*;
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -37,41 +35,44 @@ public class Model {
 
 
     public boolean verifyCredentials(String _username, String _password) {
-       return UserDatabase.getInstance().verifyCreds(_username,_password);
-       }
+        return UserDatabase.getInstance().verifyCreds(_username,_password);
+    }
 
     public boolean registerUser(String username, String email, String password) {
         if(UserDatabase.getInstance().verifyCreds(username,password)){
             return false;
         }
-       UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
-       return true;
+        try{
+            UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
+        } catch(Exception e) {
+            return false;
+        }
+        return true;
     }
 
-   public String recoverPassword(String email)throws Exception{
-       try {
-           return UserDatabase.getInstance().getPassword(email);
-       } catch (Exception e) {
-           e.printStackTrace();
-       }throw new Exception("Error Message: No email and password found");
-
-   }
-
-   public void deleteAccount(String username, String password) throws Exception{
+    public String recoverPassword(String email) throws Exception{
         try{
-            UserDatabase.getInstance().removeUser(username,password);
-        } catch(Exception e){
-
+            return UserDatabase.getInstance().getPassword(email);
         }
-   }
-   public void changePassword(String username, String newPassword) throws Exception{
-       try {
-           UserDatabase.getInstance().changePassword(username, newPassword);
-       } catch (Exception e) {
-       }
-   }
-
-    public void save() throws IOException {
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        throw new Exception("Error Message: No email and Password found");
+    }
+    public boolean deleteAccount(String username, String password) throws Exception{
+        try{
+            return UserDatabase.getInstance().removeUser(username,password);
+        }catch(Exception e){
+            return false;}
+    }
+    public boolean changePassword(String username, String newPassword) throws Exception{
+        try{
+            return UserDatabase.getInstance().changePassword(username,newPassword);
+        }catch(Exception e){
+            return false;
+        }
+    }
+    public void save() throws IOException{
         UserDatabase.getInstance().save();
     }
 

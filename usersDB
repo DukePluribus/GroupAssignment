@@ -1,9 +1,34 @@
 {
   "usersList" : [ {
+<<<<<<< HEAD
+    "username" : "mhall",
+    "email" : "maddiehall@gmail.com",
+    "password" : "seattle",
+    "tutor" : false
+  }, {
+    "username" : "Pluribus",
+    "email" : "xthatonekid@gmail.com",
+    "password" : "dukeleto141",
+    "tutor" : false
+  }, {
+    "username" : "butts",
+    "email" : "butts",
+    "password" : "butts",
+    "tutor" : false
+  }, {
+    "username" : "b",
+    "email" : "a",
+    "password" : "c",
+    "tutor" : false
+  }, {
+    "username" : "w",
+    "email" : "q",
+    "password" : "e",
+    "tutor" : false
+  }, {
     "username" : "mary",
     "email" : "marysmith@gmail.com",
     "password" : "pink",
-    "isTutor" : false,
     "tutor" : false
   } ]
 }

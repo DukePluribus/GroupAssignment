@@ -1031,6 +1031,7 @@ public class GUIprogram extends javax.swing.JFrame {
 
     public String getSentM() {
         String message = chatSendMessageBoxGroupChat.getText();
+        chatSendMessageBoxGroupChat.setText("");
         return message;
     }
 

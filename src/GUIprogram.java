@@ -772,7 +772,15 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void changePasswordSubmitActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.changePassword(usernameChangePassword.getText(), loginPasswordField1.getText());
+    }
+    
+    public void passwordChangeSuccess(){
         JOptionPane.showMessageDialog(this, "Password has been updated successfully.", "Success!", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void passwordChangeFail(){
+        JOptionPane.showMessageDialog(this, "Password update has failed. Username incorrect.", "Fail", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void changePasswordBackActionPerformed(java.awt.event.ActionEvent evt) {

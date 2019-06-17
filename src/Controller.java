@@ -1,3 +1,7 @@
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Controller {
     // Controller Class by conflict
     private String username;
@@ -46,6 +50,17 @@ public class Controller {
                 user.deleteAccountFail();
             }
         } catch(Exception e){
+        }
+    }
+    
+    public void changePassword(String username, String newPassword){
+        try {
+            if(model.changePassword(username, newPassword)){
+                user.passwordChangeSuccess();
+            } else {
+                user.passwordChangeFail();
+            }
+        } catch (Exception ex) {
         }
     }
 

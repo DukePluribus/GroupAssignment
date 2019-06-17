@@ -24,11 +24,11 @@ public class Model {
         userList.remove(user);
     }
 
+    //verify if the user's username and password combo exist in the database
     public boolean verifyCredentials(String _username, String _password) {
-
         return UserDatabase.getInstance().verifyCreds(_username,_password);
     }
-
+    //register User, if username or email is in the system, the user will not be able to register to database
     public boolean registerUser(String username, String email, String password) {
         if((UserDatabase.getInstance().verifyCreds(username,password))||(UserDatabase.getInstance().verifyEmail(email))){
             return false;
@@ -40,7 +40,7 @@ public class Model {
         }
         return true;
     }
-
+    //recover password from user's email
     public String recoverPassword(String email) throws Exception{
         try{
             return UserDatabase.getInstance().getPassword(email);
@@ -50,12 +50,14 @@ public class Model {
         }
         throw new Exception("Error Message: No email and Password found");
     }
+    //delete the User object in the database with the matching username and password
     public boolean deleteAccount(String username, String password) throws Exception{
         try{
             return UserDatabase.getInstance().removeUser(username,password);
         }catch(Exception e){
             return false;}
     }
+    //change the user's password
     public boolean changePassword(String username, String newPassword) throws Exception{
         try{
             return UserDatabase.getInstance().changePassword(username,newPassword);
@@ -63,6 +65,7 @@ public class Model {
             return false;
         }
     }
+    //save the database JSON file
     public void save() throws IOException{
         UserDatabase.getInstance().save();
     }

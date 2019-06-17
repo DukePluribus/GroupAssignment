@@ -19,5 +19,10 @@
     "email" : "a",
     "password" : "c",
     "tutor" : false
+  }, {
+    "username" : "w",
+    "email" : "q",
+    "password" : "e",
+    "tutor" : false
   } ]
 }

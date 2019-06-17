@@ -26,6 +26,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         jHomeScreen = new javax.swing.JDialog();
         switchFromHomeToOneToOneButton = new javax.swing.JButton();
@@ -636,7 +637,7 @@ public class GUIprogram extends javax.swing.JFrame {
         layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         pack();
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     private void switchFromHomeToGroupChatButtonActionPerformed(java.awt.event.ActionEvent evt) {
         jHomeScreen.setVisible(false);

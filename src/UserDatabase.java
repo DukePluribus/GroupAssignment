@@ -51,7 +51,7 @@ public class UserDatabase {
     //we need a single object mapper that will create the file and pass it back
     public static UserDatabase getInstance(){
         if(singleInstance==null){
-            ObjectMapper mapper =new ObjectMapper();
+            ObjectMapper mapper = new ObjectMapper();
             try {
                 singleInstance = mapper.readValue(new FileInputStream("usersDB"), UserDatabase.class);
             } catch (IOException e) {

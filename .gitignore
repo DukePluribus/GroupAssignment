@@ -1,6 +1,3 @@
 /dist/
 *.class
-nbproject
-.idea/
-.eclipse
 build/

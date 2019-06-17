@@ -13,9 +13,10 @@ public class UserDatabase {
 
     private UserDatabase() throws IOException {
     }
-    public void addUsertobase(User user){
+    public void addUsertobase(User user) throws IOException {
         if(verifyCreds(user.getUsername(),user.getPassword())!=true){
             usersList.add(user);}
+        UserDatabase.getInstance().save();
     }
     public boolean verifyCreds(String username, String password){
         for(int i=0; i<usersList.size();i++){
@@ -60,7 +61,7 @@ public class UserDatabase {
         }
         return singleInstance;
     }
-    public void removeUser(String username, String password){
+    public void removeUser(String username, String password) throws IOException {
         for(int i=0; i<usersList.size();i++) {
             String userlist = usersList.get(i).getUsername();
             String passwordlist = usersList.get(i).getPassword();
@@ -68,13 +69,15 @@ public class UserDatabase {
                 usersList.remove(i);
             }
         }
+        UserDatabase.getInstance().save();
     }
-    public void changePassword(String username, String password){
+    public void changePassword(String username, String password) throws IOException {
         for(int i=0;i<usersList.size();i++){
             if(usersList.get(i).getUsername().equals(username)){
                 usersList.get(i).setPassword(password);
             }
         }
+        UserDatabase.getInstance().save();
     }
 
 }

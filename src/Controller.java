@@ -1,4 +1,8 @@
-
+/*
+The controller class connects the GUIProgram, which is our view, with the Model, which talks with the database.
+It passes data between the two, and makes decisions about what to do with the data that is received, and calls the
+GUIProgram to update the view
+*/
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

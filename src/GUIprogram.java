@@ -804,7 +804,9 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
-                controller.sendMessage(getSentM());
+        if(!chatSendMessageBoxGroupChat.getText().equals("")){        
+            controller.sendMessage(getSentM());
+        }
     }
 
     private void chatBackButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {

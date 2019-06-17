@@ -706,6 +706,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void homeBackButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.userExit();
         jHomeScreen.setVisible(false);
         jLogin.pack();
         jLogin.setVisible(true);

@@ -750,6 +750,7 @@ public class GUIprogram extends javax.swing.JFrame {
         controller.registerRequest(getUserNameRegistered(), getEmailRegistered(), getPasswordRegistered());
         registerPressed(true);
         JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
+        jRegistration.setVisible(false);
     }
 
     private void portTFActionPerformed(java.awt.event.ActionEvent evt) {

@@ -3,19 +3,26 @@
     "username" : "mhall",
     "email" : "maddiehall@gmail.com",
     "password" : "seattle",
-    "isTutor" : false,
     "tutor" : false
   }, {
     "username" : "Pluribus",
     "email" : "xthatonekid@gmail.com",
     "password" : "dukeleto141",
-    "isTutor" : false,
     "tutor" : false
   }, {
     "username" : "butts",
     "email" : "butts",
     "password" : "butts",
-    "isTutor" : false,
+    "tutor" : false
+  }, {
+    "username" : "b",
+    "email" : "a",
+    "password" : "c",
+    "tutor" : false
+  }, {
+    "username" : "w",
+    "email" : "q",
+    "password" : "e",
     "tutor" : false
   } ]
 }

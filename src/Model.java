@@ -33,7 +33,11 @@ public class Model {
         if(UserDatabase.getInstance().verifyCreds(username,password)){
             return false;
         }
-        UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
+        try{
+            UserDatabase.getInstance().addUsertobase(UserDatabase.getInstance().createUser(username,email,password,false));
+        } catch(Exception e) {
+            
+        }
         return true;
     }
 

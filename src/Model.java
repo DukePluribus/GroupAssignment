@@ -30,7 +30,7 @@ public class Model {
     }
 
     public boolean registerUser(String username, String email, String password) {
-        if(UserDatabase.getInstance().verifyCreds(username,password)){
+        if((UserDatabase.getInstance().verifyCreds(username,password))||(UserDatabase.getInstance().verifyEmail(email))){
             return false;
         }
         try{

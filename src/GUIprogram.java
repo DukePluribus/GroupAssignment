@@ -750,12 +750,15 @@ public class GUIprogram extends javax.swing.JFrame {
     private void regRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {
         controller.registerRequest(getUserNameRegistered(), getEmailRegistered(), getPasswordRegistered());
         registerPressed(true);
-        JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
-        jRegistration.setVisible(false);
     }
-    
+
+    public void registerSuccessful(){
+        jRegistration.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public void registerFailed(){
-        JOptionPane.showMessageDialog(this, "User already exists, try a new username", "Registration incomplete", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "User or Email address already exists, please try again", "Registration incomplete", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void portTFActionPerformed(java.awt.event.ActionEvent evt) {
@@ -778,11 +781,11 @@ public class GUIprogram extends javax.swing.JFrame {
     private void changePasswordSubmitActionPerformed(java.awt.event.ActionEvent evt) {
         controller.changePassword(usernameChangePassword.getText(), loginPasswordField1.getText());
     }
-    
+
     public void passwordChangeSuccess(){
         JOptionPane.showMessageDialog(this, "Password has been updated successfully.", "Success!", JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     public void passwordChangeFail(){
         JOptionPane.showMessageDialog(this, "Password update has failed. Username incorrect.", "Fail", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -801,9 +804,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     private void chatSendButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
-        if(!chatSendMessageBoxGroupChat.getText().equals("")){        
-            controller.sendMessage(getSentM());
-        }
+                controller.sendMessage(getSentM());
     }
 
     private void chatBackButtonGroupChatActionPerformed(java.awt.event.ActionEvent evt) {
@@ -831,14 +832,14 @@ public class GUIprogram extends javax.swing.JFrame {
             jAccountSettings.setVisible(true);
         }
     }
-    
+
     public void deleteAccountSuccesful(){
         JOptionPane.showMessageDialog(this, "Your account has been deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
         jDeleteAccount.setVisible(false);
         jLogin.pack();
         jLogin.setVisible(true);
     }
-    
+
     public void deleteAccountFail(){
         JOptionPane.showMessageDialog(this, "Account delete failed. Incorrect username or password","Account Delete Failed",JOptionPane.INFORMATION_MESSAGE);
     }
@@ -1032,9 +1033,9 @@ public class GUIprogram extends javax.swing.JFrame {
     private javax.swing.JLabel verfiyPassword;
 
     public String getSentM() {
-            String message = chatSendMessageBoxGroupChat.getText();
-            chatSendMessageBoxGroupChat.setText("");
-            return message; 
+        String message = chatSendMessageBoxGroupChat.getText();
+        chatSendMessageBoxGroupChat.setText("");
+        return message;
     }
 
     public String getUserName() {

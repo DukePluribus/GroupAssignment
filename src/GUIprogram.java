@@ -1,3 +1,5 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -26,6 +28,7 @@ public class GUIprogram extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         jHomeScreen = new javax.swing.JDialog();
         switchFromHomeToOneToOneButton = new javax.swing.JButton();
@@ -636,7 +639,7 @@ public class GUIprogram extends javax.swing.JFrame {
         layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
         pack();
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     private void switchFromHomeToGroupChatButtonActionPerformed(java.awt.event.ActionEvent evt) {
         jHomeScreen.setVisible(false);
@@ -729,7 +732,12 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void recoverySubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         recoverPasswordPressed(true);
-        String password = controller.accountRecovery(getRecoveryEmail());
+        String password;
+        try {
+            password = controller.accountRecovery(getRecoveryEmail());
+        } catch (Exception ex) {
+            Logger.getLogger(GUIprogram.class.getName()).log(Level.SEVERE, null, ex);
+        }
         recoverPassword(recoveryEmailField.getText());
         JOptionPane.showMessageDialog(this, "Your password is: " + password, "Recovered Password", JOptionPane.INFORMATION_MESSAGE);
     }

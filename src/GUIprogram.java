@@ -5,6 +5,8 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 public class GUIprogram extends javax.swing.JFrame {
+    
+    //This is our view class for our model view controller architecture
 
     private Controller controller;
 

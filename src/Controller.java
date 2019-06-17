@@ -27,8 +27,11 @@ public class Controller {
 
     public void registerRequest(String username, String email, String password) {
         try {
-            model.registerUser(username, email, password);
-            loginRequest(username, password);
+            if (model.registerUser(username, email, password) == true){
+                loginRequest(username, password);
+            } else {
+                user.registerFailed();
+            }
         } catch (Exception e) {
         }
     }

@@ -29,8 +29,9 @@ public class Controller {
         }
     }
 
-    public String accountRecovery(String email) {
-        return model.recoverPassword(email);
+    public String accountRecovery(String email) throws Exception {
+        String password = model.recoverPassword(email);
+        return password;
     }
 
     public void userExit() {

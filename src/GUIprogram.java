@@ -1,3 +1,5 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -730,7 +732,12 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void recoverySubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         recoverPasswordPressed(true);
-        String password = controller.accountRecovery(getRecoveryEmail());
+        String password;
+        try {
+            password = controller.accountRecovery(getRecoveryEmail());
+        } catch (Exception ex) {
+            Logger.getLogger(GUIprogram.class.getName()).log(Level.SEVERE, null, ex);
+        }
         recoverPassword(recoveryEmailField.getText());
         JOptionPane.showMessageDialog(this, "Your password is: " + password, "Recovered Password", JOptionPane.INFORMATION_MESSAGE);
     }

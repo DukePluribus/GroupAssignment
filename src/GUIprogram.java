@@ -732,7 +732,7 @@ public class GUIprogram extends javax.swing.JFrame {
 
     private void recoverySubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         recoverPasswordPressed(true);
-        String password;
+        String password = "";
         try {
             password = controller.accountRecovery(getRecoveryEmail());
         } catch (Exception ex) {

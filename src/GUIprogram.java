@@ -1100,6 +1100,10 @@ public class GUIprogram extends javax.swing.JFrame {
         return email;
     }
 
+    public void accountRecoveryFail(){
+        JOptionPane.showMessageDialog(this, "Account email and password not found in database.", "Account Recovery Failed", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public String deleteAccount(String uname, String pwd) {
         return uname + pwd;
     }

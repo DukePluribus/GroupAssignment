@@ -1,6 +1,13 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import java.util.List;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 
 public class Model {
 
@@ -14,18 +21,20 @@ public class Model {
         for (Controller user : userList) {
             user.receiveMessage(message);
         }
-    }
 
-    public void attachUser(Controller user) {
-        userList.add(user);
-    }
+    public void attachUser(Controller user){}
+       userList.add(user);
+   }
 
-    public void detachUser(Controller user) {
-        userList.remove(user);
-    }
+
+
+   public void detachUser(Controller user){}
+       userList.remove(user);
+   }
+
+
 
     public boolean verifyCredentials(String _username, String _password) {
-
         return UserDatabase.getInstance().verifyCreds(_username,_password);
     }
 
@@ -66,4 +75,5 @@ public class Model {
     public void save() throws IOException{
         UserDatabase.getInstance().save();
     }
-}
+
+ }

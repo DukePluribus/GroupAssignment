@@ -29,5 +29,10 @@
     "email" : "butts",
     "password" : "butts",
     "tutor" : false
+  }, {
+    "username" : "mary",
+    "email" : "marysmith@gmail.com",
+    "password" : "pink",
+    "tutor" : false
   } ]
 }

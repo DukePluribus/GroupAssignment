@@ -1,3 +1,4 @@
+//this is the User object class
 public class User {
     private String username;
     private String email;

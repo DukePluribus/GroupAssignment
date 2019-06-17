@@ -753,6 +753,10 @@ public class GUIprogram extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Emailed Registration Information\nCheck your email for username and password", "Registration Email Sent", JOptionPane.INFORMATION_MESSAGE);
         jRegistration.setVisible(false);
     }
+    
+    public void registerFailed(){
+        JOptionPane.showMessageDialog(this, "User already exists, try a new username", "Registration incomplete", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     private void portTFActionPerformed(java.awt.event.ActionEvent evt) {
     }

@@ -281,7 +281,7 @@ public class GUIprogram extends javax.swing.JFrame {
         jLogin.getContentPane().add(titleLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         switchFromLoginToAcctRecoveryButton.setBackground(new java.awt.Color(163, 163, 181));
         switchFromLoginToAcctRecoveryButton.setForeground(new java.awt.Color(55, 55, 71));
-        switchFromLoginToAcctRecoveryButton.setText("Forgot Username or Password?");
+        switchFromLoginToAcctRecoveryButton.setText("Password Recovery");
         switchFromLoginToAcctRecoveryButton.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +291,7 @@ public class GUIprogram extends javax.swing.JFrame {
         jLogin.getContentPane().add(switchFromLoginToAcctRecoveryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 320, -1));
         switchLoginToRegisterButton.setBackground(new java.awt.Color(163, 163, 181));
         switchLoginToRegisterButton.setForeground(new java.awt.Color(55, 55, 71));
-        switchLoginToRegisterButton.setText("Don't have an account?");
+        switchLoginToRegisterButton.setText("Register");
         switchLoginToRegisterButton.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {

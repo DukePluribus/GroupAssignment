@@ -29,6 +29,7 @@ public class Controller {
         try {
             if (model.registerUser(username, email, password) == true){
                 loginRequest(username, password);
+                user.registerSuccessful();
             } else {
                 user.registerFailed();
             }

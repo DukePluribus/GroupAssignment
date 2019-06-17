@@ -1,3 +1,5 @@
+//this is the userdatabase class that creates a new instance of the JSON file and updates the database.
+//this class communicates between the JSON file and the model
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -11,14 +11,14 @@ public class Controller {
         user = new GUIprogram(Controller.this);
     }
 
-    public boolean loginRequest(String _username, String password) {
-        System.out.println("loginRequest in controller called");
-        if (model.verifyCredentials(_username, password)) {
+    public void loginRequest(String _username, String password) {
+        if(model.verifyCredentials(_username, password)) {
             model.attachUser(this);
             username = _username;
-            return true;
+            user.loginSuccessful();
+        } else {
+            user.loginFailed();
         }
-        return false;
     }
 
     public void registerRequest(String username, String email, String password) {

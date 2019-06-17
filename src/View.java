@@ -1,3 +1,4 @@
+
 public class View {
 
     public void updateMessagePane(String message) {

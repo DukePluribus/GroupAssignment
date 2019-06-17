@@ -7,7 +7,6 @@ public class Controller {
     private String username;
 
     private Model model;
-
     private GUIprogram user;
 
     public Controller(Model _model) {
@@ -34,6 +33,7 @@ public class Controller {
             }
         } catch (Exception e) {
         }
+
     }
 
     public String accountRecovery(String email) throws Exception {
@@ -45,9 +45,13 @@ public class Controller {
         }
         return null;
     }
+    
+    //This method will be called when the window is closed and the user exits the program
 
-    public void userExit() {
+    public void userExit(){
+
         model.detachUser(this);
+
     }
     
     public void deleteAccount(String username, String password){
@@ -80,3 +84,4 @@ public class Controller {
         model.sendMessage(username + ": " + message);
     }
 }
+

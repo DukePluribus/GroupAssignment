@@ -1,5 +1,6 @@
 {
   "usersList" : [ {
+<<<<<<< HEAD
     "username" : "mhall",
     "email" : "maddiehall@gmail.com",
     "password" : "seattle",
@@ -23,6 +24,11 @@
     "username" : "w",
     "email" : "q",
     "password" : "e",
+    "tutor" : false
+  }, {
+    "username" : "mary",
+    "email" : "marysmith@gmail.com",
+    "password" : "pink",
     "tutor" : false
   } ]
 }

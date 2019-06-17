@@ -17,5 +17,11 @@
     "password" : "butts",
     "isTutor" : false,
     "tutor" : false
+  }, {
+    "username" : "b",
+    "email" : "a",
+    "password" : "c",
+    "isTutor" : false,
+    "tutor" : false
   } ]
 }

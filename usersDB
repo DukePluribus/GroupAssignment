@@ -4,10 +4,5 @@
     "email" : "maddiehall@gmail.com",
     "password" : "seattle",
     "tutor" : false
-  }, {
-    "username" : "Pluribus",
-    "email" : "xthatonekid@gmail.com",
-    "password" : "dukeleto141",
-    "tutor" : false
   } ]
 }

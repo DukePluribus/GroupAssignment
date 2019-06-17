@@ -1,1 +1,3 @@
-{"password":"seattle","email":"maddiehall@gmail.com","isTutor":false,"username":"mhall"}
+{
+    "usersList": [{"password":"seattle","email":"maddiehall@gmail.com","isTutor":false,"username":"mhall"}]
+}
